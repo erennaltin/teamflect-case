@@ -1,0 +1,1 @@
+questions.js file is includes 5 js coding question, we are expecting to you solve this questions and write test to prove it!
