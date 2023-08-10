@@ -21,14 +21,13 @@ You will create a system that handles data of 10,000 people from a CSV file, con
 #### 2. Build a React.js Component for Displaying Data
 - Create a React.js page or component to render the information into a table component.
 - Use the GroupedList component from [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/controls/web/groupedlist) to group the data by Sex and Job Title.
-- Each row should display all information about one person and include an additional "photo" field, rendering with the Persona component from Microsoft Fluent UI. You can use fake images from [Picsum](https://picsum.photos/).
-- Include an "Add user" button to open a popup for adding new users (the location of the button in the page is not important). This form should use the Modal component from [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/controls/web/modal) and require only two validations:
-  - The Sex field should be a dropdown with two options: male, female.
-  - None of the fields should be empty.
+- Each row should display all information about one person and include a "photo" field, rendering with the Persona component from Microsoft Fluent UI. You can use fake images from [Picsum](https://picsum.photos/).
 
 #### 3. Implement Data Manipulation
-- Include two buttons in each row to delete and update the data, interacting with the fake backend server.
-- The update button should open a popup similar to the "Add user" form for updating user details.
+- Include a button in each row to delete the data, interacting with the fake backend server.
+- Include an "Add user" button to open a popup for adding new users. This form should use the Modal component from [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/controls/web/modal) and require two validations:
+  - The Sex field should be a dropdown with two options: male, female.
+  - None of the fields should be empty.
 
 ### Evaluation Criteria
 Your solution will be evaluated based on the following:
