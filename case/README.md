@@ -25,7 +25,7 @@ You will create a system that handles data of 10,000 people from a CSV file, con
 
 #### 3. Implement Data Manipulation
 - Include a button in each row to delete the data, interacting with the fake backend server.
-- Include an "Add user" button to open a popup for adding new users. This form should use the Modal component from [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/controls/web/modal) and require two validations:
+- Include an "Add user" button to open a popup for adding new users. The location of the button in the page is not important. This form should use the Modal component from [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui#/controls/web/modal) and require only two validations:
   - The Sex field should be a dropdown with two options: male, female.
   - None of the fields should be empty.
 
