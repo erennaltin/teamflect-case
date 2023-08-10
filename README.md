@@ -11,6 +11,10 @@ You will create a system that handles data of 10,000 people from a CSV file, con
 - Microsoft Fluent UI
 - A code editor of your choice
 
+### Code Structure
+- All backend related code (fake API generation) should be placed in the `/db` folder.
+- The frontend React code should be placed in the `/app` folder.
+
 ### Steps to Complete the Task
 
 #### 1. Convert CSV to JSON & Create Fake REST API Server
