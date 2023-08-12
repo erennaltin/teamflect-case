@@ -1,0 +1,161 @@
+import{ useEffect, useState } from 'react'
+import { AddPerson, DeletePerson, GetPeopleList } from '../../service/People';
+import { CheckboxVisibility, DefaultButton, DetailsRow, GroupedList, IColumn, IGroup, IGroupRenderProps, Persona, PersonaSize } from '@fluentui/react';
+import AddPersonModal from '../../components/Modal/AddPersonModal';
+import { SubmitHandler } from 'react-hook-form';
+import dayjs from 'dayjs';
+import ShortUniqueId from 'short-unique-id';
+
+const PeopleList = () => {
+  const [people, setPeople] = useState([] as Person[]);
+  const [groups, setGroups] = useState([] as IGroup[]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    didMount();
+  }, []);
+
+  const didMount = async () => {
+
+    const response = await GetPeopleList();
+    const responsePeople = response.data;
+
+    const sortedPeople = responsePeople.sort((a: Person, b: Person) => {
+      return a.sex > b.sex ? 1 : -1;
+    });
+
+    let groupedListItems: IGroup[] = sortedPeople.reduce((groups: IGroup[], person: Person, index: number) => {
+      const groupKey = person.sex;
+      const groupIndex = groups.findIndex(group => group.key === groupKey);
+  
+      if (groupIndex === -1) {
+        groups.push({
+          key: groupKey,
+          name: person.sex,
+          startIndex: index,
+          count: 1,
+          level: 0,
+          isCollapsed: false,
+          children: [],
+          data: [{profilePicture: `https://picsum.photos/${person.id}/200`, ...person}]
+        });
+      } else {
+        groups[groupIndex].count++;
+        groups[groupIndex].data.push({profilePicture: `https://picsum.photos/${person.id}/200`, ...person});
+      }
+  
+      return groups;
+    }, []);
+
+    groupedListItems.forEach(group => {
+      group.data.sort((a: Person, b: Person) => a.jobTitle.localeCompare(b.jobTitle));
+    });
+
+    groupedListItems = groupedListItems.map(group => {
+      return {...group, children: group.data.reduce((groups: IGroup[], person: Person, index: number) => {
+        const groupKey = person.jobTitle;
+        const groupIndex = groups.findIndex(group => group.key === groupKey);
+    
+        if (groupIndex === -1) {
+          groups.push({
+            key: groupKey,
+            name: person.jobTitle,
+            startIndex: group.startIndex + index,
+            count: 1,
+            level: 1,
+            isCollapsed: true,
+            children: [],
+            data: [person]
+          });
+        } else {
+          groups[groupIndex].count++;
+          groups[groupIndex].data.push(person);
+        }
+    
+        return groups;
+      }, [])}
+    })
+
+    console.log(groupedListItems);
+    setGroups(groupedListItems);
+    setPeople(groupedListItems.flatMap(group => group.children?.flatMap(child => child.data)));
+    setIsLoading(false);
+  }
+
+  const handleDelete = async (id: number | undefined) => {
+    if (id != undefined)
+    {
+      const deleteResponse = await DeletePerson(id);
+      if (deleteResponse.status == 200) {
+        await didMount();
+      }
+    }
+  }
+
+  const handleAddPerson = () => {
+    didMount();
+  };
+
+  const renderProfilePicture = (item: Person) => (<Persona
+    imageUrl={item.profilePicture}
+    size={PersonaSize.size24}
+    hidePersonaDetails={true}
+    imageAlt="Profile Photo"
+  />)
+
+  const onRenderCell = (nestingDepth?: number, item?: IGroup, itemIndex?: number, group?: IGroup) => {
+    const columns: IColumn[] = [
+      { key: 'profilePicture', name: 'Profile Picture', fieldName: 'profilePicture', minWidth: 300, flexGrow: 1, onRender: renderProfilePicture},
+      { key: 'id', name: 'Id', fieldName: 'id', minWidth: 300, flexGrow: 2},
+      { key: 'userId', name: 'User Id', fieldName: 'userId', minWidth: 300, flexGrow: 1 },
+      { key: 'firstName', name: 'User Id', fieldName: 'firstName', minWidth: 300, flexGrow: 1 },
+      { key: 'lastName', name: 'User Id', fieldName: 'lastName', minWidth: 300, flexGrow: 1 },
+      { key: 'sex', name: 'User Id', fieldName: 'sex', minWidth: 300, flexGrow: 1 },
+      { key: 'email', name: 'User Id', fieldName: 'email', minWidth: 300, flexGrow: 1 },
+      { key: 'phone', name: 'User Id', fieldName: 'phone', minWidth: 300, flexGrow: 1 },
+      { key: 'dateOfBirth', name: 'User Id', fieldName: 'dateOfBirth', minWidth: 300, flexGrow: 1 },
+      { key: 'jobTitle', name: 'User Id', fieldName: 'jobTitle', minWidth: 300, flexGrow: 1 },
+      { key: "deleteButton", name: "deleteButton", minWidth: 500, onRender: (item: Person) => (<DefaultButton text="Delete" onClick={() => {handleDelete(item?.id)}} style={{ backgroundColor: "red", color: "white"}}/>)}
+    ];
+
+    return item && typeof itemIndex === 'number' && itemIndex > -1 ? (
+      <>
+        {/* {itemIndex == group?.startIndex ? (<h4>Eren</h4>) : null} */}
+
+        <DetailsRow
+          checkboxVisibility={CheckboxVisibility.hidden}
+          columns={columns}
+          groupNestingDepth={nestingDepth}
+          item={item}
+          itemIndex={itemIndex}
+          group={group}
+        />
+      </>
+    ) : null;
+  }
+
+  const _onTest = (): boolean => {
+    return false;
+  }
+
+  const groupProps: IGroupRenderProps = {
+
+  }
+
+  return (
+    <div>
+      <div>
+        <AddPersonModal onAddPerson={handleAddPerson} />
+      </div>
+      <GroupedList 
+        items={people} 
+        groups={groups} 
+        onRenderCell={onRenderCell}
+        onShouldVirtualize={_onTest}
+        groupProps={groupProps}
+      />
+    </div>
+  )
+}
+
+export default PeopleList
