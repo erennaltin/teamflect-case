@@ -1,8 +1,11 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom';
+import Layout from './Shared/layout';
 
 const Root = () => {
   return (
-    <div>Root</div>
+    <Layout>
+      <Outlet />
+    </Layout>
   )
 }
 

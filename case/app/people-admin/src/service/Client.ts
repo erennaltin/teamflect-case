@@ -28,11 +28,7 @@ const makeRequest = async ({url, type, body, config} : RequestType)  => {
       return config ? await axiosClient.post(url, body, config) : await axiosClient.post(url, body);
     }
   } catch (error: any) {
-    console.log('cath url', url);
-    console.log('MakeReqERROR', error);
     const statusCode = error?.response?.status;
-    console.log('StatusCode: ', statusCode);
-    
     return error.response;
   }
 };

@@ -9,8 +9,8 @@ import {
   IStackProps,
 } from '@fluentui/react';
 import { DefaultButton } from '@fluentui/react/lib/Button';
-import Form from '../Form';
 import { SubmitHandler } from 'react-hook-form';
+import Form from '../Form/AddPersonForm';
 
 interface AddPersonModalProps {
   onAddPerson: () => void;
@@ -35,9 +35,11 @@ const AddPersonModal = ({ onAddPerson } : AddPersonModalProps ) => {
     hideModal();
   }
 
+  const iconProps = { iconName: 'add' };
+
   return (
     <div>
-      <DefaultButton onClick={showModal} text="Open Modal" />
+      <DefaultButton onClick={showModal} text="Add Person" iconProps={iconProps}/>
       <Modal
         titleAriaId={titleId}
         isOpen={isModalOpen}

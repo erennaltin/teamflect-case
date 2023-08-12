@@ -6,6 +6,7 @@ import ErrorPage from "./Shared/error-page";
 import PeopleList from "./People";
 import { registerIcons } from '@fluentui/react/lib/Styling';
 import { AddRegular, ArrowDownRegular, ArrowLeftRegular, ArrowUpRegular, CalendarRegular, CalendarTodayRegular, CheckmarkCircle20Regular, CheckmarkCircleRegular, ChevronDownRegular, ChevronRightRegular, Circle12Filled, CircleRegular, ClosedCaptionRegular, ContactCardRegular, Status16Regular, TagRegular } from "@fluentui/react-icons";
+import Home from "./Home";
 
 registerIcons({
   icons: {
@@ -28,11 +29,17 @@ const RootRouter = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "",
+        element: <Home />
+      },
+      {
+        path: "people",
+        element: <PeopleList />
+      }
+    ]
   },
-  {
-    path: "people",
-    element: <PeopleList />
-  }
 ]);
 
 export default RootRouter;
