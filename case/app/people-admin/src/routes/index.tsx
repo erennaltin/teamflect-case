@@ -4,7 +4,7 @@ import {
 import { registerIcons } from '@fluentui/react/lib/Styling';
 import { AddRegular, ArrowDownRegular, ArrowLeftRegular, ArrowUpRegular, CalendarRegular, CheckmarkCircleRegular, ChevronDownRegular, ChevronRightRegular, ContactCardRegular, EyeOffRegular, EyeRegular, TagRegular } from "@fluentui/react-icons";
 import Root from "./root";
-import ErrorPage from "./Shared/ErrorPage";
+import ErrorPage from "./shared/ErrorPage";
 import Home from "./Home";
 import PeopleList from "./People";
 import Login from "./Onboarding/Login";
