@@ -16,7 +16,7 @@ const start = async () => {
     const jsonObj = csvResponse.map(item => (
         {
           id: parseInt(item["Index"]),
-          userId: item["User Id"],
+          idUser: item["User Id"],
           firstName: item["First Name"],
           lastName: item["Last Name"],
           sex: item["Sex"],

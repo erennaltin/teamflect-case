@@ -82,7 +82,7 @@ const PeopleList = () => {
   const handleDelete = async (id: number | undefined) => {
     if (id != undefined)
     {
-      const deleteResponse = await DeletePerson(id);
+      const deleteResponse = await DeletePerson(id.toString());
       if (deleteResponse.status == 200) {
         await didMount();
       }
