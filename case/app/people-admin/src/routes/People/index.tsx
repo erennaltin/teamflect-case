@@ -82,7 +82,7 @@ const PeopleList = () => {
   const handleDelete = async (id: number | undefined) => {
     if (id != undefined)
     {
-      const deleteResponse = await DeletePerson(id.toString());
+      const deleteResponse = await DeletePerson(id);
       if (deleteResponse.status == 200) {
         await didMount();
       }
@@ -144,7 +144,7 @@ const PeopleList = () => {
     const columns: IColumn[] = [
       { key: 'profilePicture', name: 'Profile Picture', fieldName: 'profilePicture', minWidth: 300, targetWidthProportion: 1, onRender: renderProfilePicture},
       { key: 'id', name: 'Id', fieldName: 'id', minWidth: 600, maxWidth: 600},
-      { key: 'userId', name: 'User Id', fieldName: 'userId', minWidth: 300, maxWidth: 300 },
+      { key: 'idUser', name: 'User Id', fieldName: 'idUser', minWidth: 300, maxWidth: 300 },
       { key: 'firstName', name: 'User Id', fieldName: 'firstName', minWidth: 600, maxWidth: 300 },
       { key: 'lastName', name: 'User Id', fieldName: 'lastName', minWidth: 300, maxWidth: 300 },
       { key: 'sex', name: 'User Id', fieldName: 'sex', minWidth: 300, maxWidth: 300 },

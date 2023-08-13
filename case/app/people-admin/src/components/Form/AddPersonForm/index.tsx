@@ -27,7 +27,7 @@ const Form = ({onAddPerson}: FormProps) => {
     const phoneMaskParts = data.Phone.replace(/\D/g, '').match(/(\d{3})(\d{3})(\d{4})/);
     data.Phone = phoneMaskParts ? phoneMaskParts[0] : data.Phone;
     let person: Person = {
-      userId: uid(),
+      idUser: uid(),
       firstName: data.Firstname,
       lastName: data.Lastname,
       sex: data.Sex,
