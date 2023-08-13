@@ -1,9 +1,9 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import AuthContext from "../context/AuthContext";
 import { useEffect, useReducer } from 'react';
-import { Login, Register } from '../service/User';
-import { SignInDTO } from '../models/DTO/SignInDTO';
-import { User } from '../models/User';
+import { SignInDTO } from 'models/DTO/SignInDTO';
+import { Login, Register } from 'service/User';
+import { User } from 'models/User';
+import AuthContext from 'context/AuthContext';
 import Layout from './Shared/Layout';
 
 const Root = () => {

@@ -110010,6 +110010,17 @@
       "email": "eren@gmail.com",
       "jobTitle": "AAAAAA",
       "id": 10001
+    },
+    {
+      "userId": "TEWGEeIP4Z9Xknl",
+      "firstName": "Eren",
+      "lastName": "Altin",
+      "sex": "Female",
+      "phone": "5412106041",
+      "dateOfBirth": "2023-08-13",
+      "email": "erennaltin@gmail.com",
+      "jobTitle": "AAAAAAA",
+      "id": 10002
     }
   ],
   "users": [
@@ -110052,6 +110063,11 @@
       "email": "test6@test.com",
       "password": "$2a$10$kSwlB/ZyMVMaMNpTq6trm.ZH5ZEPfPiQu7X9s7DH8J3GdTLRvfLkm",
       "id": 8
+    },
+    {
+      "email": "test41@test.com",
+      "password": "$2a$10$VDJRSgEsS8yDjzfjbeDSZu7pe0qnyTiX3/wwR2VU.L4nDoWjHLM06",
+      "id": 9
     }
   ]
 }

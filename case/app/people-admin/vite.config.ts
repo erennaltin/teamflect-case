@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       components: "/src/components",
-      images: "/src/assets",
+      images: "/src/assets/images",
       service: "/src/service",
       context: "/src/context",
       routes: "/src/routes",

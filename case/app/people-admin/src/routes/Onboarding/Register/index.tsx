@@ -1,12 +1,22 @@
 import styles from './app.module.scss'
 import { DefaultButton, Image } from '@fluentui/react'
-import Logo from '../../../assets/images/logo.svg'
-import RegisterForm from '../../../components/Form/RegisterForm'
-import RootRouter from '../..'
-import useWindowDimensions from '../../../helpers/hooks/useWindowDimensions'
+import RegisterForm from 'components/Form/RegisterForm';
+import AuthContext from 'context/AuthContext';
+import useWindowDimensions from 'helpers/hooks/useWindowDimensions';
+import Logo from 'images/logo.svg'
+import { useContext, useEffect } from 'react';
+import RootRouter from 'routes/index';
 
 const Register = () => {
   const { width } = useWindowDimensions();
+  const context = useContext(AuthContext);
+  const user = context?.getUser();
+
+  useEffect(() => {
+    if (user !== null) {
+      RootRouter.navigate('/')
+    }
+  },[])
 
   return (
     <>
