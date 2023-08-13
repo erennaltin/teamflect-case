@@ -47,6 +47,10 @@ const makeRequest = async ({url, type, body, config} : RequestType)  => {
     {
       signOut();
     }
+    else
+    {
+      RootRouter.navigate('/error', {replace: true});
+    }
     return error.response;
   }
 };
