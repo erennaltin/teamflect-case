@@ -1,12 +1,19 @@
-import { Image } from '@fluentui/react'
+import { DefaultButton, Image } from '@fluentui/react'
 import LOGO from '../../assets/images/logo.svg';
 import styles from'./app.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import AuthContext, { User } from '../../context/AuthContext';
+import RootRouter from '../../routes';
 
 type Props = {}
 
 
 const Navbar = (props: Props) => {
+  const context = useContext(AuthContext);
+  const user = context?.getUser() ?? null;
+  const signOut = context?.signOut ?? (() => {});
+
   return (
     <div className={styles.container}>
       <Link to='/'>
@@ -15,6 +22,10 @@ const Navbar = (props: Props) => {
       <div className={styles.linkContainer}>
         <Link to="/" className={styles.link}>HOME</Link>
         <Link to="/people" className={styles.link}>PEOPLE</Link>
+      </div>
+      <div style={{flex: 1}} />
+      <div>
+        {user != null ? <DefaultButton text='Logout' onClick={() => signOut()}/> : <DefaultButton text='Login' onClick={() => RootRouter.navigate('/login')}/> }
       </div>
     </div>
   )

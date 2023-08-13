@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.9",
+    "json-server-auth": "^2.1.0",
     "typescript": "^5.1.6"
   }
 }

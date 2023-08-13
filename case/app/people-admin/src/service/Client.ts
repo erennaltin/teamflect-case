@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { signOut } from '../routes/Onboarding/Actions';
+import RootRouter from '../routes';
+import { getCookie } from '../helpers/utils';
 
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -17,6 +20,16 @@ type RequestType = {
 }
 
 const makeRequest = async ({url, type, body, config} : RequestType)  => {
+  const userToken = getCookie('userToken');
+  
+  if (userToken) {
+    config = config ?? {};
+    config.headers = {
+      ...config.headers,
+      Authorization: `Bearer ${userToken}`,
+    };
+  }
+
   try {
     if (type === 'GET') {
       return config ? await axiosClient.get(url, config) : await axiosClient.get(url);
@@ -28,7 +41,12 @@ const makeRequest = async ({url, type, body, config} : RequestType)  => {
       return config ? await axiosClient.post(url, body, config) : await axiosClient.post(url, body);
     }
   } catch (error: any) {
+    console.log(error);
     const statusCode = error?.response?.status;
+    if (statusCode == 401)
+    {
+      signOut();
+    }
     return error.response;
   }
 };

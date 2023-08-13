@@ -110001,26 +110001,52 @@
       "jobTitle": "Drilling engineer"
     },
     {
-      "userId": "hWw8DFpBeUnhVlj",
-      "firstName": "Eren",
-      "lastName": "Altin",
-      "sex": "Female",
+      "userId": "fiiFzr8knez4LZ6",
+      "firstName": "TEST",
+      "lastName": "TEST",
+      "sex": "Male",
       "phone": "5412106041",
-      "dateOfBirth": "2023-08-08",
-      "email": "erennaltin@gmail.com",
-      "jobTitle": "AAAB",
-      "id": 10002
+      "dateOfBirth": "2023-08-13",
+      "email": "eren@gmail.com",
+      "jobTitle": "AAAAAA",
+      "id": 10001
+    }
+  ],
+  "users": [
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$ymJ10Ids.8Dewa0jEHbTau0c2SzCuABVJrI7I/N9kYJ7iyb1xwoYO",
+      "id": 1
     },
     {
-      "userId": "toUp1u8rMtjgyEI",
-      "firstName": "Eren",
-      "lastName": "Altin",
-      "sex": "Female",
-      "phone": "5412312312",
-      "dateOfBirth": "2023-08-12",
-      "email": "eren1174@gmail.com",
-      "jobTitle": "AAAAA",
-      "id": 10003
+      "email": "eren@gmail.com",
+      "password": "$2a$10$e8WgEq9TAAQv9/1uFk.lF.bEW/F6MINdM6cpU0293RL1cR28.rDbe",
+      "id": 2
+    },
+    {
+      "email": "test@test2.com",
+      "password": "$2a$10$uGPWAZMgIj0FxVztO/knL.lAeexSx52nGXOiyvK1M20HpuGVGzfAC",
+      "id": 3
+    },
+    {
+      "email": "test@test3.com",
+      "password": "$2a$10$et8C3g1iAd4CkAfOyBner.81C0RuTAZ3Udg3rsr0g65ts3jgIWq.2",
+      "id": 4
+    },
+    {
+      "email": "test@test4.com",
+      "password": "$2a$10$2twGAx2jvG4JB5X7CSutWOn1qnUVRTc78ov3JGSt172bCdbdntj8.",
+      "id": 5
+    },
+    {
+      "email": "test@test5.com",
+      "password": "$2a$10$HSC0s/Yxu0CGWJYumnUfT.cJaAl/U5VPULHJZjQeIDyRFj3mafqZy",
+      "id": 6
+    },
+    {
+      "email": "test@test6.com",
+      "password": "$2a$10$DFpS6wS1iqEkor9FXhvX7eH1DZAZ1Rv0JZUhTwzTOWp4SLy0Mf1ci",
+      "id": 7
     }
   ]
 }

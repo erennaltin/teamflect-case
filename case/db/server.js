@@ -2,6 +2,9 @@ const csvtojson = require("csvtojson");
 const path = require("path");
 const fs = require("fs");
 
+const auth = require('json-server-auth')
+const jsonServer = require('json-server');
+
 const dbSourceFileCSV = path.join(__dirname, "data", "source", "people-10000.csv");
 let dbSourceFileJSON = path.join(__dirname, "data", "source", "db.json");
 
@@ -23,17 +26,25 @@ const start = async () => {
           jobTitle: item["Job Title"],
         })
         )
-    let data = {people: jsonObj}
+    let data = {people: jsonObj, users: []}
     fs.writeFileSync(dbSourceFileJSON, JSON.stringify(data));
   }
 
-  const jsonServer = require('json-server');
   const server = jsonServer.create();
   const router = jsonServer.router(dbSourceFileJSON);
   const middlewares = jsonServer.defaults();
-
-  server.use(middlewares)
+  const rules = auth.rewriter({
+    // Permission rules
+    users: 600,
+    people: 660,
+  });
+  
+  server.use(rules);
+  server.use(middlewares);
+  server.use(auth);
   server.use(router)
+  // ClI do that automatically, but we need to do it manually in module version
+  server.db = router.db;
   server.listen(3000, () => {
     console.log('JSON Server is running')
   })

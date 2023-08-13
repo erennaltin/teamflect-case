@@ -1,7 +1,20 @@
+import { useLocation } from 'react-router-dom';
 import styles from './app.module.scss';
-type Props = {}
+import { useContext, useEffect } from 'react';
+import AuthContext from '../../context/AuthContext';
 
-const Home = (props: Props) => {
+const Home = () => {
+  const { state } = useLocation();
+  const context = useContext(AuthContext);
+  const signOut = context?.signOut ?? (() => {});
+
+  useEffect(() => {
+    if (state?.isSignout)
+    {
+      signOut();
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
       <h1>Welcome!</h1>

@@ -117,14 +117,14 @@ const Form = ({onAddPerson}: FormProps) => {
 
               <Controller
                 name="Email"
-                rules={{ required: true }}
+                rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ }}
                 control={control}
-                render={({ field }) => <TextField 
-                  label="Email" 
-                  styles={inputStyles} 
+                render={({ field }) => <TextField
                   {...field}
-                  errorMessage={errors.Email && 'Email is required'}
-                  />}
+                  label="Email"
+                  styles={inputStyles}
+                  errorMessage={errors.Email?.type == 'required' ? 'Email is required' : errors.Email?.type == 'pattern' ? 'Email is not valid' : ''}
+                />}
               />
 
               <Controller
