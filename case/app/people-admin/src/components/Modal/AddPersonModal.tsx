@@ -9,7 +9,6 @@ import {
   IStackProps,
 } from '@fluentui/react';
 import { DefaultButton } from '@fluentui/react/lib/Button';
-import { SubmitHandler } from 'react-hook-form';
 import Form from '../Form/AddPersonForm';
 
 interface AddPersonModalProps {

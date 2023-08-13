@@ -1,17 +1,9 @@
 import { createContext } from "react";
+import { SignInDTO } from "../models/DTO/SignInDTO";
+import { User } from "../models/User";
 
-export type SignInDTO = {
-  email: string,
-  password: string
-}
 
-export type User = {
-  token?: string,
-  email?: string,
-  password?: string;
-  firstName?: string,
-  lastName?: string,
-}
+
 
 export type AuthContextType = {
   signIn: ({email, password}: SignInDTO) => Promise<any>;

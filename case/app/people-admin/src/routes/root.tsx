@@ -1,8 +1,10 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import Layout from './Shared/layout';
-import AuthContext, { SignInDTO, User } from "../context/AuthContext";
+import AuthContext from "../context/AuthContext";
 import { useEffect, useReducer } from 'react';
 import { Login, Register } from '../service/User';
+import { SignInDTO } from '../models/DTO/SignInDTO';
+import { User } from '../models/User';
+import Layout from './Shared/Layout';
 
 const Root = () => {
   const navigate = useNavigate();

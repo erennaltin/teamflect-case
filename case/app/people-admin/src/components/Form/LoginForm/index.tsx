@@ -7,7 +7,7 @@ const LoginForm = () => {
   const context = useContext(AuthContext);
   const signIn = context?.signIn;
   const [serverError, setServerError] = useState(null);
-  const { handleSubmit, control, reset, formState: { errors } } = useForm<ILoginFormInputs>({
+  const { handleSubmit, control, formState: { errors } } = useForm<ILoginFormInputs>({
     defaultValues: {
       Email: '',
       Password: '',

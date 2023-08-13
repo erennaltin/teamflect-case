@@ -1,9 +1,9 @@
 import { DefaultButton, Image } from '@fluentui/react'
 import LOGO from '../../assets/images/logo.svg';
 import styles from'./app.module.scss';
-import { Link, Navigate } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import AuthContext, { User } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
 import RootRouter from '../../routes';
 import useWindowDimensions from '../../helpers/hooks/useWindowDimensions';
 import Sidebar from '../Sidebar';

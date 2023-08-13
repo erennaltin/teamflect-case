@@ -7,7 +7,7 @@ const RegisterForm = () => {
   const context = useContext(AuthContext);
   const signUp = context?.signUp;
   const [serverError, setServerError] = useState(null);
-  const { handleSubmit, control, reset, formState: { errors } } = useForm<IRegisterFromInputs>({
+  const { handleSubmit, control, formState: { errors } } = useForm<IRegisterFromInputs>({
     defaultValues: {
       Email: '',
       Password: '',

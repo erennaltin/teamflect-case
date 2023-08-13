@@ -42,11 +42,12 @@ const makeRequest = async ({url, type, body, config} : RequestType)  => {
     }
   } catch (error: any) {
     const statusCode = error?.response?.status;
+    
     if (statusCode == 401)
     {
       signOut();
     }
-    else if (statusCode === 500 || statusCode === 404) {
+    else if (statusCode === 500 || statusCode === 404 || error?.code === "ERR_NETWORK") {
       RootRouter.navigate('/error', {replace: true});
     }
 

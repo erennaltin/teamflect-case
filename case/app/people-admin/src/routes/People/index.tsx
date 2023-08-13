@@ -1,6 +1,6 @@
 import{ useEffect, useState } from 'react'
 import { DeletePerson, GetPeopleList } from '../../service/People';
-import { CheckboxVisibility, DefaultButton, DetailsRow, GroupedList, IColumn, IDetailsRowBaseProps, IGap, IGroup, IGroupRenderProps, Persona, PersonaSize, SelectionMode, Spinner } from '@fluentui/react';
+import { CheckboxVisibility, DefaultButton, DetailsRow, GroupedList, IColumn, IGroup, Persona, PersonaSize, SelectionMode, Spinner } from '@fluentui/react';
 import AddPersonModal from '../../components/Modal/AddPersonModal';
 import styles from './app.module.css';
 
@@ -100,7 +100,7 @@ const PeopleList = () => {
     imageAlt="Profile Photo"
   />)
 
-  const renderHeaderCell = (nestingDepth?: number, group?: IGroup, itemIndex?: number) => {
+  const renderHeaderCell = (nestingDepth?: number, group?: IGroup) => {
     const columns: IColumn[] = [
       { key: 'profilePicture', name: 'Profile Picture', fieldName: 'profilePicture', minWidth: 300},
       { key: 'id', name: 'Id', fieldName: 'id', minWidth: 600, maxWidth: 600},
@@ -158,7 +158,7 @@ const PeopleList = () => {
     return item && typeof itemIndex === 'number' && itemIndex > -1 ? (
       <div style={{ width: '100%'}}>
         {itemIndex === group?.startIndex ?
-          renderHeaderCell(nestingDepth, group, itemIndex)
+          renderHeaderCell(nestingDepth, group)
         : null}
         <DetailsRow
           styles={{cell: {width: '120px!important', display: 'flex', alignItems: 'center', justifyContent: 'center'}}}

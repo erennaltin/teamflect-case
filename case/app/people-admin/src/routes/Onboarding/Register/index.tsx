@@ -3,7 +3,6 @@ import { DefaultButton, Image } from '@fluentui/react'
 import Logo from '../../../assets/images/logo.svg'
 import RegisterForm from '../../../components/Form/RegisterForm'
 import RootRouter from '../..'
-import { useEffect } from 'react'
 import useWindowDimensions from '../../../helpers/hooks/useWindowDimensions'
 
 const Register = () => {

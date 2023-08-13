@@ -2,10 +2,10 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Root from "./root";
-import ErrorPage from "./Shared/error-page";
+import ErrorPage from "./Shared/ErrorPage";
 import PeopleList from "./People";
 import { registerIcons } from '@fluentui/react/lib/Styling';
-import { AddRegular, ArrowDownRegular, ArrowLeftRegular, ArrowUpRegular, CalendarRegular, CalendarTodayRegular, CheckmarkCircle20Regular, CheckmarkCircleRegular, ChevronDownRegular, ChevronRightRegular, Circle12Filled, CircleRegular, ClosedCaptionRegular, ContactCardRegular, EyeOffRegular, EyeRegular, SlideHideRegular, Status16Regular, TagRegular } from "@fluentui/react-icons";
+import { AddRegular, ArrowDownRegular, ArrowLeftRegular, ArrowUpRegular, CalendarRegular, CheckmarkCircleRegular, ChevronDownRegular, ChevronRightRegular, ContactCardRegular, EyeOffRegular, EyeRegular, TagRegular } from "@fluentui/react-icons";
 import Home from "./Home";
 import Login from "./Onboarding/Login";
 import Register from "./Onboarding/Register";
