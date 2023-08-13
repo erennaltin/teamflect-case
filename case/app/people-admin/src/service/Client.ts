@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { signOut } from '../routes/Onboarding/Actions';
-import RootRouter from '../routes';
-import { getCookie } from '../helpers/utils';
+import { getCookie } from 'helpers/utils';
+import { signOut } from 'routes/Onboarding/Actions';
+import RootRouter from 'routes/index';
 
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,

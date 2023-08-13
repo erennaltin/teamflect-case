@@ -1,8 +1,8 @@
 import{ useEffect, useState } from 'react'
 import { DeletePerson, GetPeopleList } from '../../service/People';
 import { CheckboxVisibility, DefaultButton, DetailsRow, GroupedList, IColumn, IGroup, Persona, PersonaSize, SelectionMode, Spinner } from '@fluentui/react';
-import AddPersonModal from '../../components/Modal/AddPersonModal';
 import styles from './app.module.css';
+import AddPersonModal from 'components/Modal/AddPersonModal';
 
 const PeopleList = () => {
   const [people, setPeople] = useState([] as Person[]);

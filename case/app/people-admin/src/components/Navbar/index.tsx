@@ -1,12 +1,12 @@
 import { DefaultButton, Image } from '@fluentui/react'
-import LOGO from '../../assets/images/logo.svg';
 import styles from'./app.module.scss';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import AuthContext from '../../context/AuthContext';
-import RootRouter from '../../routes';
 import useWindowDimensions from '../../helpers/hooks/useWindowDimensions';
-import Sidebar from '../Sidebar';
+import AuthContext from 'context/AuthContext';
+import LOGO from 'images/logo.svg';
+import Sidebar from 'components/Sidebar';
+import RootRouter from 'routes/index';
 
 const Navbar = () => {
   const { width } = useWindowDimensions();

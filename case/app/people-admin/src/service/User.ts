@@ -1,5 +1,6 @@
-import { SignInDTO, User } from "../context/AuthContext";
+import { User } from "models/User";
 import { POST } from "./Client";
+import { SignInDTO } from "models/DTO/SignInDTO";
 
 const registerUrl = '/register';
 const loginUrl = '/login';

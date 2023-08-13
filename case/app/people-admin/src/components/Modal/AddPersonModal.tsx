@@ -9,7 +9,7 @@ import {
   IStackProps,
 } from '@fluentui/react';
 import { DefaultButton } from '@fluentui/react/lib/Button';
-import Form from '../Form/AddPersonForm';
+import Form from 'components/Form/AddPersonForm';
 
 interface AddPersonModalProps {
   onAddPerson: () => void;

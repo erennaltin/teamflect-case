@@ -2,7 +2,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import dayjs from 'dayjs';
 import { DatePicker, DayOfWeek, Dropdown, IDropdownOption, IDropdownStyles, IStackStyles, ITextFieldStyles, MaskedTextField, PrimaryButton, Stack, TextField } from '@fluentui/react';
 import ShortUniqueId from 'short-unique-id';
-import { AddPerson } from '../../../service/People';
+import { AddPerson } from 'service/People';
 
 interface FormProps {
   onAddPerson: () => void;

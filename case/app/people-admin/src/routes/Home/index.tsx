@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import styles from './app.module.scss';
 import { useContext, useEffect } from 'react';
-import AuthContext from '../../context/AuthContext';
+import AuthContext from 'context/AuthContext';
 import RootRouter from '..';
 
 const Home = () => {
