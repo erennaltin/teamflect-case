@@ -1,3 +1,0 @@
-class People extends BaseEntity{
-
-}

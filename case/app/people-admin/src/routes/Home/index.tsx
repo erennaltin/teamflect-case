@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import styles from './app.module.scss';
 import { useContext, useEffect } from 'react';
 import AuthContext from '../../context/AuthContext';
+import RootRouter from '..';
 
 const Home = () => {
   const { state } = useLocation();
@@ -12,6 +13,7 @@ const Home = () => {
     if (state?.isSignout)
     {
       signOut();
+      RootRouter.navigate('/login');
     }
   }, [])
 

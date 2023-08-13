@@ -41,16 +41,15 @@ const makeRequest = async ({url, type, body, config} : RequestType)  => {
       return config ? await axiosClient.post(url, body, config) : await axiosClient.post(url, body);
     }
   } catch (error: any) {
-    console.log(error);
     const statusCode = error?.response?.status;
     if (statusCode == 401)
     {
       signOut();
     }
-    else
-    {
+    else if (statusCode === 500 || statusCode === 404) {
       RootRouter.navigate('/error', {replace: true});
     }
+
     return error.response;
   }
 };

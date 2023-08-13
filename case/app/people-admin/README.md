@@ -1,10 +1,6 @@
 # React + TypeScript + Vite
 
 # PROBLEMS!!
-- Iconlari kontrol et!!!
-- Virtualizationa cozum bul
-- Validationlari kontrol et
-
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

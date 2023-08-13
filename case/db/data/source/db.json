@@ -110047,6 +110047,11 @@
       "email": "test@test6.com",
       "password": "$2a$10$DFpS6wS1iqEkor9FXhvX7eH1DZAZ1Rv0JZUhTwzTOWp4SLy0Mf1ci",
       "id": 7
+    },
+    {
+      "email": "test6@test.com",
+      "password": "$2a$10$kSwlB/ZyMVMaMNpTq6trm.ZH5ZEPfPiQu7X9s7DH8J3GdTLRvfLkm",
+      "id": 8
     }
   ]
 }
